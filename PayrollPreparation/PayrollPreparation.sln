@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollPreparation.Applicat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollPreparation.Domain", "PayrollPreparation.Domain\PayrollPreparation.Domain.csproj", "{449EBFB3-07F2-412E-A381-A344F3EDC69B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollPreparation.Infrastructure", "PayrollPreparation.Infrastructure\PayrollPreparation.Infrastructure.csproj", "{30B963C5-9044-4A8A-AA48-1B1929D654C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{449EBFB3-07F2-412E-A381-A344F3EDC69B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{449EBFB3-07F2-412E-A381-A344F3EDC69B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{449EBFB3-07F2-412E-A381-A344F3EDC69B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30B963C5-9044-4A8A-AA48-1B1929D654C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30B963C5-9044-4A8A-AA48-1B1929D654C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30B963C5-9044-4A8A-AA48-1B1929D654C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30B963C5-9044-4A8A-AA48-1B1929D654C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

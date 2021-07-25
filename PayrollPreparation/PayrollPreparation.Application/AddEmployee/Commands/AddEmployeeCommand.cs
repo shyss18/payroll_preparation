@@ -1,8 +1,9 @@
+using System;
 using MediatR;
 
 namespace PayrollPreparation.Application.AddEmployee.Commands
 {
-    public abstract class AddEmployeeCommand : IRequest
+    public abstract class AddEmployeeCommand : IRequest<Guid>
     {
         public string Name { get; }
 
