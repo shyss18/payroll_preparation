@@ -8,5 +8,7 @@ namespace PayrollPreparation.Application.Common.Contracts
         Guid AddEmployee(Employee employee);
 
         Employee GetEmployee(Guid id);
+
+        Guid DeleteEmployee(Guid id);
     }
 }

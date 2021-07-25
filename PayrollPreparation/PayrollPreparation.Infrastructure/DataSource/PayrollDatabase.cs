@@ -30,5 +30,17 @@ namespace PayrollPreparation.Infrastructure.DataSource
         {
             return _employees.FirstOrDefault(emp => emp.Id == id);
         }
+
+        public Guid DeleteEmployee(Guid id)
+        {
+            Employee employee = _employees.FirstOrDefault(emp => emp.Id == id);
+            if (employee != null)
+            {
+                _employees.Remove(employee);
+                return employee.Id;
+            }
+            
+            return Guid.Empty;
+        }
     }
 }
