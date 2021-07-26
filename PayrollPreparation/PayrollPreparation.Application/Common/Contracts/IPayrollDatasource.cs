@@ -10,5 +10,7 @@ namespace PayrollPreparation.Application.Common.Contracts
         Employee GetEmployee(Guid id);
 
         Guid DeleteEmployee(Guid id);
+
+        Employee GetUnionMember(Guid id);
     }
 }

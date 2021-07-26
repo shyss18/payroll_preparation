@@ -10,10 +10,12 @@ namespace PayrollPreparation.Infrastructure.DataSource
     public class PayrollDatabase : IPayrollDatasource
     {
         private readonly HashSet<Employee> _employees;
+        private readonly Dictionary<Guid, Employee> _unionMembers;
 
         public PayrollDatabase()
         {
             _employees = new HashSet<Employee>(new EmployeeComparer());
+            _unionMembers = new Dictionary<Guid, Employee>();
         }
 
         public Guid AddEmployee(Employee employee)
@@ -39,8 +41,13 @@ namespace PayrollPreparation.Infrastructure.DataSource
                 _employees.Remove(employee);
                 return employee.Id;
             }
-            
+
             return Guid.Empty;
+        }
+
+        public Employee GetUnionMember(Guid id)
+        {
+            return _unionMembers[id];
         }
     }
 }
