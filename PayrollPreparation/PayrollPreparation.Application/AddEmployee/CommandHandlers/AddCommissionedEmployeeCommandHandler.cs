@@ -33,7 +33,7 @@ namespace PayrollPreparation.Application.AddEmployee.CommandHandlers
                 Address = request.Address,
                 PaymentClassification = new CommissionedClassification(request.Salary, request.Rate),
                 PaymentMethod = new HoldMethod(),
-                PaymentSchedule = new WeeklySchedule()
+                PaymentSchedule = new BiweeklySchedule()
             };
 
             Guid id = _payrollDatasource.AddEmployee(employee);
