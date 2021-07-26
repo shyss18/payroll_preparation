@@ -13,4 +13,8 @@
       <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="ChangeEmployee\CommandHandlers" />
+    </ItemGroup>
+
 </Project>
