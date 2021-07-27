@@ -1,6 +1,6 @@
 using System;
 
-namespace PayrollPreparation.Application.ChangeEmployee.Commands
+namespace PayrollPreparation.Application.ChangeEmployee.Commands.Basic
 {
     public class ChangeEmployeeNameCommand : ChangeEmployeeCommand
     {

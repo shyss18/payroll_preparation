@@ -1,8 +1,8 @@
 using System;
 
-namespace PayrollPreparation.Application.ChangeEmployee.Commands
+namespace PayrollPreparation.Application.ChangeEmployee.Commands.PaymentClassification
 {
-    public class ChangeSalariedCommand : ChangeEmployeeCommand
+    public class ChangeSalariedCommand : ChangePaymentClassificationCommand
     {
         public decimal Salary { get; }
         

@@ -1,8 +1,8 @@
 namespace PayrollPreparation.Domain.Models.Affiliation
 {
-    public class NoAffiliation : Affiliation
+    public class NoAffiliation : IAffiliation
     {
-        public override void AddServiceCharge(ServiceCharge serviceCharge)
+        public void AddServiceCharge(ServiceCharge serviceCharge)
         {
         }
     }

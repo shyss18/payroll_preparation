@@ -19,6 +19,6 @@ namespace PayrollPreparation.Domain.Models
 
         public IPaymentSchedule PaymentSchedule { get; set; }
 
-        public Affiliation.Affiliation Affiliation { get; set; }
+        public Affiliation.IAffiliation Affiliation { get; set; }
     }
 }

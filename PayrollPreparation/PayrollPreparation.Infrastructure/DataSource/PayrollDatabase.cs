@@ -20,7 +20,8 @@ namespace PayrollPreparation.Infrastructure.DataSource
 
         public Guid AddEmployee(Employee employee)
         {
-            if (_employees.Contains(employee)) return Guid.Empty;
+            if (_employees.Contains(employee))
+                throw new InvalidOperationException();
 
             employee.Id = Guid.NewGuid();
             _employees.Add(employee);
@@ -36,18 +37,46 @@ namespace PayrollPreparation.Infrastructure.DataSource
         public Guid DeleteEmployee(Guid id)
         {
             Employee employee = _employees.FirstOrDefault(emp => emp.Id == id);
-            if (employee != null)
-            {
-                _employees.Remove(employee);
-                return employee.Id;
-            }
+            if (employee == null)
+                throw new InvalidOperationException();
 
-            return Guid.Empty;
+            _employees.Remove(employee);
+            return employee.Id;
         }
 
-        public Employee GetUnionMember(Guid id)
+        public Employee GetUnionMember(Guid memberId)
         {
-            return _unionMembers[id];
+            return _unionMembers[memberId];
+        }
+
+        public Guid UpdateEmployee(Employee employee)
+        {
+            Employee existingEmployee = _employees.FirstOrDefault(emp => emp.Id == employee.Id);
+            if (existingEmployee == null)
+                throw new InvalidOperationException();
+
+            _employees.Remove(existingEmployee);
+            _employees.Add(employee);
+
+            return employee.Id;
+        }
+
+        public Guid AddUnionMember(Guid memberId, Employee employee)
+        {
+            if (_unionMembers.ContainsKey(memberId))
+                throw new InvalidOperationException();
+
+            _unionMembers.Add(memberId, employee);
+
+            return memberId;
+        }
+
+        public void RemoveUnionMember(Guid memberId)
+        {
+            if (_unionMembers.ContainsKey(memberId))
+                _unionMembers.Remove(memberId);
+
+            throw new InvalidOperationException();
         }
     }
 }

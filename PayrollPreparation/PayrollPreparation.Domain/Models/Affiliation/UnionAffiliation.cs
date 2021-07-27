@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace PayrollPreparation.Domain.Models.Affiliation
 {
-    public class UnionAffiliation : Affiliation
+    public class UnionAffiliation : IAffiliation
     {
         private readonly List<ServiceCharge> _serviceCharges;
 
@@ -11,7 +11,7 @@ namespace PayrollPreparation.Domain.Models.Affiliation
             _serviceCharges = new List<ServiceCharge>();
         }
 
-        public override void AddServiceCharge(ServiceCharge serviceCharge)
+        public void AddServiceCharge(ServiceCharge serviceCharge)
         {
             _serviceCharges.Add(serviceCharge);
         }

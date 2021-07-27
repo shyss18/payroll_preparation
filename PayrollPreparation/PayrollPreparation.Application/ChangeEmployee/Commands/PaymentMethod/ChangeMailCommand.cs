@@ -1,8 +1,8 @@
 using System;
 
-namespace PayrollPreparation.Application.ChangeEmployee.Commands
+namespace PayrollPreparation.Application.ChangeEmployee.Commands.PaymentMethod
 {
-    public class ChangeMailCommand : ChangeEmployeeCommand
+    public class ChangeMailCommand : ChangePaymentMethodCommand
     {
         public string Address { get; }
         

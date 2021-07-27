@@ -1,8 +1,8 @@
 using System;
 
-namespace PayrollPreparation.Application.ChangeEmployee.Commands
+namespace PayrollPreparation.Application.ChangeEmployee.Commands.PaymentClassification
 {
-    public class ChangeHourlyCommand : ChangeEmployeeCommand
+    public class ChangeHourlyCommand : ChangePaymentClassificationCommand
     {
         public double Rate { get; }
 
