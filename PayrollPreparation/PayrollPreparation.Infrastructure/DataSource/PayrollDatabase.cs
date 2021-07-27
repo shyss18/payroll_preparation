@@ -78,5 +78,8 @@ namespace PayrollPreparation.Infrastructure.DataSource
 
             throw new InvalidOperationException();
         }
+
+        public List<Employee> GetEmployees()
+            => _employees.ToList();
     }
 }

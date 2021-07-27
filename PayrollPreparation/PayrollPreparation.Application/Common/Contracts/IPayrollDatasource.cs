@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using PayrollPreparation.Domain.Models;
 
 namespace PayrollPreparation.Application.Common.Contracts
@@ -18,5 +19,7 @@ namespace PayrollPreparation.Application.Common.Contracts
         Guid AddUnionMember(Guid memberId, Employee employee);
 
         void RemoveUnionMember(Guid memberId);
+
+        List<Employee> GetEmployees();
     }
 }

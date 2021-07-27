@@ -17,5 +17,10 @@ namespace PayrollPreparation.Domain.Models.PaymentClassification
         {
             _timeCards.Add(timeCard);
         }
+
+        public double CalculateAmount()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -8,5 +8,10 @@ namespace PayrollPreparation.Domain.Models.PaymentClassification
         {
             _salary = salary;
         }
+
+        public double CalculateAmount()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

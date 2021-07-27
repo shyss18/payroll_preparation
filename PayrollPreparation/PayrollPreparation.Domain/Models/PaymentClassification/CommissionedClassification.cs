@@ -21,5 +21,10 @@ namespace PayrollPreparation.Domain.Models.PaymentClassification
         {
             _sales.Add(salesReceipt);
         }
+
+        public double CalculateAmount()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
