@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace PayrollPreparation.Domain.Models.PaymentClassification
@@ -22,7 +23,7 @@ namespace PayrollPreparation.Domain.Models.PaymentClassification
             _sales.Add(salesReceipt);
         }
 
-        public double CalculateAmount()
+        public double CalculateAmount(DateTime paymentDate)
         {
             throw new System.NotImplementedException();
         }

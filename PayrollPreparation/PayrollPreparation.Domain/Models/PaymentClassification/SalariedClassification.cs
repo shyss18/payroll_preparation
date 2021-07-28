@@ -1,3 +1,5 @@
+using System;
+
 namespace PayrollPreparation.Domain.Models.PaymentClassification
 {
     public class SalariedClassification : IPaymentClassification
@@ -9,7 +11,7 @@ namespace PayrollPreparation.Domain.Models.PaymentClassification
             _salary = salary;
         }
 
-        public double CalculateAmount()
+        public double CalculateAmount(DateTime paymentDate)
         {
             return (double) _salary;
         }

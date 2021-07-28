@@ -1,7 +1,9 @@
+using System;
+
 namespace PayrollPreparation.Domain.Models.PaymentClassification
 {
     public interface IPaymentClassification
     {
-        double CalculateAmount();
+        double CalculateAmount(DateTime paymentDate);
     }
 }
