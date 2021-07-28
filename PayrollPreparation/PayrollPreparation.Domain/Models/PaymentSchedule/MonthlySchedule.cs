@@ -6,7 +6,8 @@ namespace PayrollPreparation.Domain.Models.PaymentSchedule
     {
         public bool IsPaymentDate(DateTime date)
         {
-            throw new NotImplementedException();
+            DateTime nextDay = date.AddDays(1);
+            return date.Month == nextDay.Month;
         }
     }
 }

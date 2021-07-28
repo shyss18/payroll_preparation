@@ -11,7 +11,7 @@ namespace PayrollPreparation.Domain.Models.PaymentClassification
 
         public double CalculateAmount()
         {
-            throw new System.NotImplementedException();
+            return (double) _salary;
         }
     }
 }

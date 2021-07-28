@@ -33,6 +33,9 @@ namespace PayrollPreparation.Application.Payday.CommandHandlers
                     IPaymentMethod paymentMethod = employee.PaymentMethod;
 
                     double amount = paymentClassification.CalculateAmount();
+                    
+                    //TODO: Add calculate contributions to affiliates
+                    
                     paymentMethod.Pay(amount);
                 }
             }
