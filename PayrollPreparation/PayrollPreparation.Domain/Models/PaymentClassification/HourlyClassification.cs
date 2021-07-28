@@ -43,7 +43,7 @@ namespace PayrollPreparation.Domain.Models.PaymentClassification
             DateTime startPeriod = paymentDate.AddDays(-5);
             DateTime endPeriod = paymentDate;
 
-            return timeCardDate <= endPeriod || timeCardDate >= startPeriod;
+            return timeCardDate <= endPeriod && timeCardDate >= startPeriod;
         }
 
         private double GetOvertimePayment(double hours)
