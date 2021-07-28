@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\PayrollPreparation.Application\PayrollPreparation.Application.csproj" />
+      <ProjectReference Include="..\..\src\PayrollPreparation.Domain\PayrollPreparation.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="AddEmployeeUnitTests" />
+      <Folder Include="AddSalesReceiptUnitTests" />
+      <Folder Include="AddServiceChargeUnitTests" />
+      <Folder Include="AddTimeCardUnitTests" />
+      <Folder Include="ChangeEmployeeUnitTests" />
+      <Folder Include="DeleteEmployeeUnitTests" />
+      <Folder Include="PaydayUnitTests" />
+    </ItemGroup>
+
+</Project>
