@@ -9,7 +9,7 @@ using PayrollPreparation.Domain.Models.PaymentClassification;
 
 namespace PayrollPreparation.Application.AddTimeCard.CommandHandlers
 {
-    public class AddTimeCardCommandHandler : AsyncRequestHandler<AddTimeCardCommand>
+    public class AddTimeCardCommandHandler : IRequestHandler<AddTimeCardCommand>
     {
         private readonly IPayrollDatasource _payrollDatasource;
 
@@ -18,7 +18,7 @@ namespace PayrollPreparation.Application.AddTimeCard.CommandHandlers
             _payrollDatasource = payrollDatasource;
         }
 
-        protected override Task Handle(AddTimeCardCommand request, CancellationToken cancellationToken)
+        public Task<Unit> Handle(AddTimeCardCommand request, CancellationToken cancellationToken)
         {
             Employee employee = _payrollDatasource.GetEmployee(request.EmployeeId);
 
