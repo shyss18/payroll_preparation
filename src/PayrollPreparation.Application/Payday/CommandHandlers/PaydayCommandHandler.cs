@@ -5,6 +5,7 @@ using MediatR;
 using PayrollPreparation.Application.Common.Contracts;
 using PayrollPreparation.Application.Payday.Commands;
 using PayrollPreparation.Domain.Models;
+using PayrollPreparation.Domain.Models.Affiliation;
 using PayrollPreparation.Domain.Models.PaymentClassification;
 using PayrollPreparation.Domain.Models.PaymentMethod;
 using PayrollPreparation.Domain.Models.PaymentSchedule;
@@ -31,12 +32,14 @@ namespace PayrollPreparation.Application.Payday.CommandHandlers
                 {
                     IPaymentClassification paymentClassification = employee.PaymentClassification;
                     IPaymentMethod paymentMethod = employee.PaymentMethod;
+                    IAffiliation affiliation = employee.Affiliation;
+                    
+                    double netAmount = paymentClassification.CalculateAmount(request.Date);
+                    double serviceCharge = affiliation.CalculateServiceCharges(request.Date);
 
-                    double amount = paymentClassification.CalculateAmount(request.Date);
+                    double grossAmount = netAmount - serviceCharge; 
                     
-                    //TODO: Add calculate contributions to affiliates
-                    
-                    paymentMethod.Pay(amount);
+                    paymentMethod.Pay(grossAmount);
                 }
             }
 

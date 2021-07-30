@@ -19,7 +19,7 @@ namespace PayrollPreparation.Application.ChangeEmployee.CommandHandlers.Affiliat
         {
             _payrollDatasource.RemoveUnionMember(command.MemberId);
             _payrollDatasource.AddUnionMember(Guid.NewGuid(), employee);
-            return new UnionAffiliation();
+            return new UnionAffiliation(command.Dues);
         }
     }
 }

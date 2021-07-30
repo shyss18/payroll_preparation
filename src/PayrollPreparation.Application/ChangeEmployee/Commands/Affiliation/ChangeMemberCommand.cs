@@ -6,9 +6,9 @@ namespace PayrollPreparation.Application.ChangeEmployee.Commands.Affiliation
     {
         public Guid MemberId { get; }
 
-        public DateTime Dues { get; }
+        public double Dues { get; }
 
-        public ChangeMemberCommand(Guid employeeId, DateTime dues, Guid memberId) : base(employeeId)
+        public ChangeMemberCommand(Guid employeeId, double dues, Guid memberId) : base(employeeId)
         {
             Dues = dues;
             MemberId = memberId;
