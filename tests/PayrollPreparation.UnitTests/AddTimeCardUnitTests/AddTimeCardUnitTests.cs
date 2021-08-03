@@ -7,6 +7,10 @@ using PayrollPreparation.Application.AddTimeCard.CommandHandlers;
 using PayrollPreparation.Application.AddTimeCard.Commands;
 using PayrollPreparation.Application.Common.Contracts;
 using PayrollPreparation.Domain.Models;
+using PayrollPreparation.Domain.Models.Affiliation;
+using PayrollPreparation.Domain.Models.PaymentClassification;
+using PayrollPreparation.Domain.Models.PaymentMethod;
+using PayrollPreparation.Domain.Models.PaymentSchedule;
 using Xunit;
 
 namespace PayrollPreparation.UnitTests.AddTimeCardUnitTests
@@ -37,7 +41,14 @@ namespace PayrollPreparation.UnitTests.AddTimeCardUnitTests
         public void Handle_WhenEmployeeExistAndPaymentClassificationDidNotExist_ThenThrowInvalidOperationException()
         {
             //Arrange
-            var employee = _fixture.Create<Employee>();
+            var employee = _fixture
+                .Build<Employee>()
+                .With(x => x.PaymentMethod, new DirectMethod())
+                .With(x => x.PaymentClassification, new SalariedClassification(_fixture.Create<decimal>()))
+                .With(x => x.PaymentSchedule, new MonthlySchedule())
+                .With(x => x.Affiliation, new NoAffiliation())
+                .Create();
+
             employee.PaymentClassification = null;
             
             var command = _fixture.Create<AddTimeCardCommand>();
