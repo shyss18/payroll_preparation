@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 using MediatR;
 using PayrollPreparation.Application.Common.Contracts;
 using PayrollPreparation.Application.Payday.Commands;
-using PayrollPreparation.Domain.Models;
-using PayrollPreparation.Domain.Models.Affiliation;
-using PayrollPreparation.Domain.Models.PaymentClassification;
-using PayrollPreparation.Domain.Models.PaymentMethod;
-using PayrollPreparation.Domain.Models.PaymentSchedule;
+using PayrollPreparation.Domain;
+using PayrollPreparation.Domain.Affiliation;
+using PayrollPreparation.Domain.PaymentClassification;
+using PayrollPreparation.Domain.PaymentMethod;
+using PayrollPreparation.Domain.PaymentSchedule;
 
 namespace PayrollPreparation.Application.Payday.CommandHandlers
 {

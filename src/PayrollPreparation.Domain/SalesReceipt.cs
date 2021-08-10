@@ -1,6 +1,6 @@
 using System;
 
-namespace PayrollPreparation.Domain.Models
+namespace PayrollPreparation.Domain
 {
     public class SalesReceipt
     {

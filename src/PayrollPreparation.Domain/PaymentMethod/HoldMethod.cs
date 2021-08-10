@@ -1,6 +1,6 @@
-namespace PayrollPreparation.Domain.Models.PaymentMethod
+namespace PayrollPreparation.Domain.PaymentMethod
 {
-    public class MailMethod : IPaymentMethod
+    public class HoldMethod : IPaymentMethod
     {
         public void Pay(double amount)
         {

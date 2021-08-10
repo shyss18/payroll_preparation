@@ -1,6 +1,6 @@
 using System;
 
-namespace PayrollPreparation.Domain.Models.Affiliation
+namespace PayrollPreparation.Domain.Affiliation
 {
     public interface IAffiliation
     {

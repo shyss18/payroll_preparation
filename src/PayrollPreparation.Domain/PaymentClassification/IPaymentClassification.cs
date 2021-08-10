@@ -1,6 +1,6 @@
 using System;
 
-namespace PayrollPreparation.Domain.Models.PaymentClassification
+namespace PayrollPreparation.Domain.PaymentClassification
 {
     public interface IPaymentClassification
     {

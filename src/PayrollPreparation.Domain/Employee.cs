@@ -1,9 +1,10 @@
 using System;
-using PayrollPreparation.Domain.Models.PaymentClassification;
-using PayrollPreparation.Domain.Models.PaymentMethod;
-using PayrollPreparation.Domain.Models.PaymentSchedule;
+using PayrollPreparation.Domain.Affiliation;
+using PayrollPreparation.Domain.PaymentClassification;
+using PayrollPreparation.Domain.PaymentMethod;
+using PayrollPreparation.Domain.PaymentSchedule;
 
-namespace PayrollPreparation.Domain.Models
+namespace PayrollPreparation.Domain
 {
     public class Employee
     {
@@ -19,6 +20,6 @@ namespace PayrollPreparation.Domain.Models
 
         public IPaymentSchedule PaymentSchedule { get; set; }
 
-        public Affiliation.IAffiliation Affiliation { get; set; }
+        public IAffiliation Affiliation { get; set; }
     }
 }

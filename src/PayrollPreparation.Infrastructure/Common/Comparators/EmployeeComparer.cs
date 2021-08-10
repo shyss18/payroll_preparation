@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using PayrollPreparation.Domain.Models;
+using PayrollPreparation.Domain;
 
 namespace PayrollPreparation.Infrastructure.Common.Comparators
 {

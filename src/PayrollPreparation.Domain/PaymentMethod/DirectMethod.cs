@@ -1,4 +1,4 @@
-namespace PayrollPreparation.Domain.Models.PaymentMethod
+namespace PayrollPreparation.Domain.PaymentMethod
 {
     public class DirectMethod : IPaymentMethod
     {

@@ -1,6 +1,6 @@
 ﻿using PayrollPreparation.Application.ChangeEmployee.Commands.PaymentMethod;
 using PayrollPreparation.Application.Common.Contracts;
-using PayrollPreparation.Domain.Models.PaymentMethod;
+using PayrollPreparation.Domain.PaymentMethod;
 
 namespace PayrollPreparation.Application.ChangeEmployee.CommandHandlers.PaymentMethod
 {

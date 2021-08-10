@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace PayrollPreparation.Domain.Models.PaymentClassification
+namespace PayrollPreparation.Domain.PaymentClassification
 {
     public class HourlyClassification : IPaymentClassification
     {

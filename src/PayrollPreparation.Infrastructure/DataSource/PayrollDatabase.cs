@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using PayrollPreparation.Application.Common.Contracts;
-using PayrollPreparation.Domain.Models;
+using PayrollPreparation.Domain;
 using PayrollPreparation.Infrastructure.Common.Comparators;
 
 namespace PayrollPreparation.Infrastructure.DataSource

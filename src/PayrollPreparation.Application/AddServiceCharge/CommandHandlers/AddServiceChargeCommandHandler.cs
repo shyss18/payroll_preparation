@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using MediatR;
 using PayrollPreparation.Application.AddServiceCharge.Commands;
 using PayrollPreparation.Application.Common.Contracts;
-using PayrollPreparation.Domain.Models;
+using PayrollPreparation.Domain;
 
 namespace PayrollPreparation.Application.AddServiceCharge.CommandHandlers
 {

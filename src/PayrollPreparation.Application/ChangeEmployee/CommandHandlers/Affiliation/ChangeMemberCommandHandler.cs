@@ -1,8 +1,8 @@
 ﻿using System;
 using PayrollPreparation.Application.ChangeEmployee.Commands.Affiliation;
 using PayrollPreparation.Application.Common.Contracts;
-using PayrollPreparation.Domain.Models;
-using PayrollPreparation.Domain.Models.Affiliation;
+using PayrollPreparation.Domain;
+using PayrollPreparation.Domain.Affiliation;
 
 namespace PayrollPreparation.Application.ChangeEmployee.CommandHandlers.Affiliation
 {

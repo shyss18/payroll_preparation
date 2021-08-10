@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using MediatR;
 using PayrollPreparation.Application.AddSalesReceipt.Commands;
 using PayrollPreparation.Application.Common.Contracts;
-using PayrollPreparation.Domain.Models;
-using PayrollPreparation.Domain.Models.PaymentClassification;
+using PayrollPreparation.Domain;
+using PayrollPreparation.Domain.PaymentClassification;
 
 namespace PayrollPreparation.Application.AddSalesReceipt.CommandHandlers
 {

@@ -5,10 +5,10 @@ using MediatR;
 using Microsoft.Extensions.Logging;
 using PayrollPreparation.Application.AddEmployee.Commands;
 using PayrollPreparation.Application.Common.Contracts;
-using PayrollPreparation.Domain.Models;
-using PayrollPreparation.Domain.Models.PaymentClassification;
-using PayrollPreparation.Domain.Models.PaymentMethod;
-using PayrollPreparation.Domain.Models.PaymentSchedule;
+using PayrollPreparation.Domain;
+using PayrollPreparation.Domain.PaymentClassification;
+using PayrollPreparation.Domain.PaymentMethod;
+using PayrollPreparation.Domain.PaymentSchedule;
 
 namespace PayrollPreparation.Application.AddEmployee.CommandHandlers
 {

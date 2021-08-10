@@ -1,6 +1,6 @@
 using System;
 
-namespace PayrollPreparation.Domain.Models.PaymentSchedule
+namespace PayrollPreparation.Domain.PaymentSchedule
 {
     public interface IPaymentSchedule
     {

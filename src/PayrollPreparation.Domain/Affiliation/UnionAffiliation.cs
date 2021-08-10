@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PayrollPreparation.Domain.Models.Affiliation
+namespace PayrollPreparation.Domain.Affiliation
 {
     public class UnionAffiliation : IAffiliation
     {

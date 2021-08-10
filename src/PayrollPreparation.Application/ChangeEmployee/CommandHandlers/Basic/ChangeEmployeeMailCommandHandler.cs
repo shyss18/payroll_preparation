@@ -1,6 +1,6 @@
 ﻿using PayrollPreparation.Application.ChangeEmployee.Commands.Basic;
 using PayrollPreparation.Application.Common.Contracts;
-using PayrollPreparation.Domain.Models;
+using PayrollPreparation.Domain;
 
 namespace PayrollPreparation.Application.ChangeEmployee.CommandHandlers.Basic
 {

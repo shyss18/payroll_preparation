@@ -1,8 +1,8 @@
 ﻿using PayrollPreparation.Application.ChangeEmployee.Commands.PaymentClassification;
 using PayrollPreparation.Application.Common.Contracts;
-using PayrollPreparation.Domain.Models;
-using PayrollPreparation.Domain.Models.PaymentClassification;
-using PayrollPreparation.Domain.Models.PaymentSchedule;
+using PayrollPreparation.Domain;
+using PayrollPreparation.Domain.PaymentClassification;
+using PayrollPreparation.Domain.PaymentSchedule;
 
 namespace PayrollPreparation.Application.ChangeEmployee.CommandHandlers.PaymentClassification
 {
