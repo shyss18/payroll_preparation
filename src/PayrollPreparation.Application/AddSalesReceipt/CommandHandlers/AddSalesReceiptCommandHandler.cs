@@ -9,7 +9,7 @@ using PayrollPreparation.Domain.PaymentClassification;
 
 namespace PayrollPreparation.Application.AddSalesReceipt.CommandHandlers
 {
-    public class AddSalesReceiptCommandHandler : AsyncRequestHandler<AddSalesReceiptCommand>
+    public class AddSalesReceiptCommandHandler : IRequestHandler<AddSalesReceiptCommand, Guid>
     {
         private readonly IPayrollDatasource _payrollDatasource;
 
@@ -18,7 +18,7 @@ namespace PayrollPreparation.Application.AddSalesReceipt.CommandHandlers
             _payrollDatasource = payrollDatasource;
         }
 
-        protected override Task Handle(AddSalesReceiptCommand request, CancellationToken cancellationToken)
+        public Task<Guid> Handle(AddSalesReceiptCommand request, CancellationToken cancellationToken)
         {
             Employee employee = _payrollDatasource.GetEmployee(request.EmployeeId);
 
@@ -30,6 +30,7 @@ namespace PayrollPreparation.Application.AddSalesReceipt.CommandHandlers
                         "Can't add sales receipt to Employee without commissioned classification");
 
                 employeeClassification.AddSalesReceipt(new SalesReceipt(request.Date, request.Amount));
+                return Task.FromResult(_payrollDatasource.UpdateEmployee(employee));
             }
 
             throw new InvalidOperationException("Employee has not found");

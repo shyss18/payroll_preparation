@@ -3,7 +3,7 @@ using MediatR;
 
 namespace PayrollPreparation.Application.AddSalesReceipt.Commands
 {
-    public class AddSalesReceiptCommand : IRequest
+    public class AddSalesReceiptCommand : IRequest<Guid>
     {
         public Guid EmployeeId { get; }
 
