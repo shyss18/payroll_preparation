@@ -3,7 +3,7 @@ using MediatR;
 
 namespace PayrollPreparation.Application.AddServiceCharge.Commands
 {
-    public class AddServiceChargeCommand : IRequest
+    public class AddServiceChargeCommand : IRequest<Guid>
     {
         public DateTime Date { get; }
 
