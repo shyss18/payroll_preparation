@@ -10,7 +10,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="AddEmployeeUnitTests" />
       <Folder Include="ChangeEmployeeUnitTests" />
       <Folder Include="DeleteEmployeeUnitTests" />
       <Folder Include="PaydayUnitTests" />
