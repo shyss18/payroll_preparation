@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 using AutoFixture;
+using FluentAssertions;
 using Moq;
 using Moq.AutoMock;
 using PayrollPreparation.Application.AddTimeCard.CommandHandlers;
 using PayrollPreparation.Application.AddTimeCard.Commands;
 using PayrollPreparation.Application.Common.Contracts;
-using PayrollPreparation.Domain.Models;
-using PayrollPreparation.Domain.Models.Affiliation;
-using PayrollPreparation.Domain.Models.PaymentClassification;
-using PayrollPreparation.Domain.Models.PaymentMethod;
-using PayrollPreparation.Domain.Models.PaymentSchedule;
+using PayrollPreparation.Domain;
+using PayrollPreparation.Domain.Affiliation;
+using PayrollPreparation.Domain.PaymentClassification;
+using PayrollPreparation.Domain.PaymentMethod;
+using PayrollPreparation.Domain.PaymentSchedule;
 using Xunit;
 
 namespace PayrollPreparation.UnitTests.AddTimeCardUnitTests
@@ -20,10 +22,14 @@ namespace PayrollPreparation.UnitTests.AddTimeCardUnitTests
         private readonly Fixture _fixture;
         private readonly AutoMocker _autoMocker;
 
+        private readonly Mock<IPayrollDatasource> _mockPayrollDatasource;
+
         public AddTimeCardUnitTests()
         {
             _fixture = new Fixture();
             _autoMocker = new AutoMocker();
+
+            _mockPayrollDatasource = _autoMocker.GetMock<IPayrollDatasource>();
         }
 
         [Fact]
@@ -50,11 +56,9 @@ namespace PayrollPreparation.UnitTests.AddTimeCardUnitTests
                 .Create();
 
             employee.PaymentClassification = null;
-            
-            var command = _fixture.Create<AddTimeCardCommand>();
-            var mockPayrollDatasource = _autoMocker.GetMock<IPayrollDatasource>();
 
-            mockPayrollDatasource
+            var command = _fixture.Create<AddTimeCardCommand>();
+            _mockPayrollDatasource
                 .Setup(_ => _.GetEmployee(It.IsAny<Guid>()))
                 .Returns(() => employee);
 
@@ -63,6 +67,37 @@ namespace PayrollPreparation.UnitTests.AddTimeCardUnitTests
             //Act, Assert
             Assert.ThrowsAsync<InvalidOperationException>(async () =>
                 await commandHandler.Handle(command, CancellationToken.None));
+        }
+
+        [Fact]
+        public async Task Handle_WhenEmployeeExistAndPaymentClassificationExist_ThenAddTimeCard()
+        {
+            //Arrange
+            var employee = _fixture
+                .Build<Employee>()
+                .With(x => x.PaymentMethod, new DirectMethod())
+                .With(x => x.PaymentClassification, new HourlyClassification(_fixture.Create<double>()))
+                .With(x => x.PaymentSchedule, new MonthlySchedule())
+                .With(x => x.Affiliation, new NoAffiliation())
+                .Create();
+            
+            _mockPayrollDatasource
+                .Setup(_ => _.GetEmployee(It.IsNotNull<Guid>()))
+                .Returns(() => employee);
+            _mockPayrollDatasource
+                .Setup(_ => _.UpdateEmployee(employee))
+                .Returns(employee.Id);
+
+            var command = _fixture.Create<AddTimeCardCommand>();
+            var commandHandler = _autoMocker.CreateInstance<AddTimeCardCommandHandler>();
+
+            //Act
+            Guid employeeId = await commandHandler.Handle(command, CancellationToken.None);
+            
+            //Assert
+            employeeId.Should().Be(employee.Id);
+            _mockPayrollDatasource.Verify(_ => _.GetEmployee(It.IsNotNull<Guid>()), Times.Once);
+            _mockPayrollDatasource.Verify(_ => _.UpdateEmployee(employee), Times.Once);
         }
     }
 }

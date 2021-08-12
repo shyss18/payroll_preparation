@@ -3,7 +3,7 @@ using MediatR;
 
 namespace PayrollPreparation.Application.AddTimeCard.Commands
 {
-    public class AddTimeCardCommand : IRequest
+    public class AddTimeCardCommand : IRequest<Guid>
     {
         public DateTime Date { get; }
 
