@@ -24,7 +24,7 @@ namespace PayrollPreparation.Application.DeleteEmployee.CommandHandlers
         public Task<Guid> Handle(DeleteEmployeeCommand request, CancellationToken cancellationToken)
         {
             Guid id = _payrollDatasource.DeleteEmployee(request.Id);
-            return Task.FromResult<Guid>(id);
+            return Task.FromResult(id);
         }
     }
 }
